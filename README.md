@@ -83,7 +83,7 @@
 
 #### 文章支持标签分类 
 
-![](http://leopardpan.github.io/images/readme/img2.png)
+![](http://qiuxiaopeng2000.github.io//images/readme/标签.png)
 
 #### 手机端效果
 
