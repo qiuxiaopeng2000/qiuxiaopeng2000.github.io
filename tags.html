@@ -1,0 +1,15 @@
+---
+layout: page
+title : 标签
+header : 所有文章
+group: navigation
+---
+{% include JB/setup %}
+
+{% assign posts_collate = site.posts %}
+<div class="page card">
+<ul>
+  	  {% assign tags_list = site.tags %}  
+  	  {% include JB/tags_list %}
+ </ul>
+</div>
