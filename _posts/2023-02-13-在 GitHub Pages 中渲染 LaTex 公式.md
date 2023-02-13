@@ -16,9 +16,10 @@ tags: [Latex, Github, Markdown]
 
 1. 首先找到博客的目录下的head.html
 
-![在GitHub Pages中渲染 LaTex 公式](../images/posts/article/在%20GitHub%20Pages%20中渲染%20LaTex%20公式.png)
+![在GitHub Pages中渲染 LaTex 公式](https://github.com/qiuxiaopeng2000/qiuxiaopeng2000.github.io/tree/main/images/posts/article/在%20GitHub%20Pages%20中渲染%20LaTex%20公式.png)
 
 2. 编辑_includes 目录下的 head.html 文件，在 <head> 和 </head> 中间的任意位置加上官方提供的脚本链接：
+
 ```html
 <head>
     <script type="text/x-mathjax-config">
