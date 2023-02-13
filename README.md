@@ -59,7 +59,7 @@
 
 #### 头像效果
 
-![](https://github.com/qiuxiaopeng2000/qiuxiaopeng2000.github.io/tree/main/images/readme/封面.png)
+![](http://qiuxiaopeng2000.github.io//images/readme/封面.png)
 
 如果你只想要我博客里的头像效果，你只需要拿 qiuxiaopeng2000.github.io/_includes/side-panel.html 文件里面 `头像效果` 和 qiuxiaopeng2000.github.io/css/main.css 里面最后面 `头像效果` 部分就行了。
 
