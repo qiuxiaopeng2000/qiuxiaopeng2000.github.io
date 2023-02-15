@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "在GitHub Pages中渲染 LaTex 公式"
+title: "在GitHub Pages中渲染LaTex 公式"
 date: 2023-02-13 
 description: "让博客支持公式显示"
 tags: [Latex, Github, Markdown]
