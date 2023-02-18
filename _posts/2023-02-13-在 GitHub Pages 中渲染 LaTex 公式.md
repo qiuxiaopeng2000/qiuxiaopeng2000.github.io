@@ -15,10 +15,11 @@ tags: [Latex, Github, Markdown]
 下面介绍步骤
 
 1. 首先找到博客的目录下的head.html
+<div align=center><img src='http://qiuxiaopeng2000.github.io//images/posts/article/在GitHub-Pages中渲染LaTex公式.png'> </div>
 
-![在GitHub Pages中渲染 LaTex 公式](http://qiuxiaopeng2000.github.io//images/posts/article/在GitHub-Pages中渲染LaTex公式.png)
+<!-- ![在GitHub Pages中渲染 LaTex 公式](http://qiuxiaopeng2000.github.io//images/posts/article/在GitHub-Pages中渲染LaTex公式.png) -->
 
-1. 编辑_includes 目录下的 head.html 文件，在 <head> 和 </head> 中间的任意位置加上官方提供的脚本链接：
+1. 编辑_includes 目录下的 head.html 文件，在 \<head> 和 \</head> 中间的任意位置加上官方提供的脚本链接：
 
 ```html
 <head>
