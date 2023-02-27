@@ -11,6 +11,6 @@ rootPath = os.path.split(curPath)[0]
 sys.path.append(rootPath)
 ```
 
-其中`os.path.dirname(__file__)`获取当前文件所在目录的目录名，`os.path.abspat`获取当前文件的绝对路径，取绝对路径的第一个即为根目录。
+其中`os.path.dirname(__file__)`获取当前文件所在目录的目录名，`os.path.abspath`获取当前文件的绝对路径，`os.path.split`将最后一个/进行拆分，将索引为0的视为目录（路径），将索引为1的视为文件名。
 
 在文件头加入上述代码即可解决问题。
