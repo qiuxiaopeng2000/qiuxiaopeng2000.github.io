@@ -49,7 +49,7 @@ scp后第一个变量为需要上传到服务器的本地文件，第二个变�
 > 本人在使用腾讯云轻量应用服务器期间遇到过在控制台中打开端口仍然无法访问的情况，可以使用Linux命令手动打开端口。
 > 首先执行`systemctl status firewall`查看防火墙是否打开，若防火墙关闭了可以使用`systemctl start firewall`打开防火墙，然后使用命令`firewall-cmd --zone=public --add-port=20000/tcp --permanent`打开端口，再使用`firewall-cmd --reload`加载设置，最终实现手动端口放行。可以使用命令`firewall-cmd --zone=public --list-ports`查看已经放行的端口，检查端口是否放行成功。
 4. 进入容器命令：`docker attach django_lesson(container_name)`。关闭容器：Ctrl + D，挂起容器：先按Ctrl + P, 再按 Ctrl + Q
-5. 使用ssh通过开放的端口直接登录容器，通过修改config配置，具体步骤参考![免密登录服务器](#免密远程登录服务器)第6小节。
+5. 使用ssh通过开放的端口直接登录容器，通过修改config配置，具体步骤参考[免密登录服务器](#免密远程登录服务器)第6小节。
 
 ## 使用git维护项目
 任意找一个代码托管平台如![GitHub](https://github.com/)
