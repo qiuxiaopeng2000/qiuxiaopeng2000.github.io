@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Linux下执行python文件出现找不到自定义模块的问题"
+date: 2023-02-24 
+description: "Linux下执行python文件出现找不到自定义模块的问题"
+tag: python
+---   
+
 
 若在一个python文件中引用了自定义的其它目录下的文件，在pycharm中可以顺利通过编译，而在Linux或命令行下会出现 ModuleNotFoundError: No module named ‘xxx‘ 的报错信息，其根本原因是python的**搜索包机制**。
 
