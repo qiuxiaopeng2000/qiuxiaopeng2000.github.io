@@ -3,7 +3,7 @@ layout: post
 title: "配置docker环境与git环境"
 date: 2023-02-27 
 description: "将项目部署到云端服务器上，记录下配置docker环境与git环境需要用到的命令"
-tag: [docker, git]
+tags: [Docker, Git]
 ---   
 
 
