@@ -52,7 +52,7 @@ scp后第一个变量为需要上传到服务器的本地文件，第二个变�
 5. 使用ssh通过开放的端口直接登录容器，通过修改config配置，具体步骤参考[免密登录服务器](#免密远程登录服务器)第6小节。
 
 ## 使用git维护项目
-任意找一个代码托管平台如![GitHub](https://github.com/)
+任意找一个代码托管平台如[GitHub](https://github.com/)
 1. 使用`git init`生成.git文件并初始化
 2. 使用`git config --global user.name "用户名"`和`git config --global user.email "邮箱地址"`配置身份信息，只有配置了身份信息才能正常使用git
 3. 使用`git remote add origin git@github.com:yourName/repositoryname.git`连接到远程仓库（初次连接时使用，下一次不需要重新建立连接）。
