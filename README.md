@@ -88,7 +88,9 @@
 #### 手机端效果
 
 
-<img width="300" src="http://qiuxiaopeng2000.github.io//images/readme/手机.jpg" alt="wechat">
+<div >
+    <img width="300" src="http://qiuxiaopeng2000.github.io//images/readme/手机.jpg" alt="wechat">
+</div>
 
 #### 感谢   
 
