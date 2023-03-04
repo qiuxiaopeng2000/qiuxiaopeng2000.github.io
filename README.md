@@ -83,7 +83,7 @@
 
 #### 文章支持标签分类 
 
-![](http://qiuxiaopeng2000.github.io//images/readme/标签.png)
+![](images/readme/标签.png)
 
 #### 手机端效果
 
