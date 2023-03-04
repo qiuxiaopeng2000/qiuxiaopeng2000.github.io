@@ -74,11 +74,11 @@
 
 #### 每篇文章下面都支持打赏   
 
-![](http://qiuxiaopeng2000.github.io//images/readme/打赏.png)
+![](images/readme/%E6%89%93%E8%B5%8F.png)
 
 #### 文章详情   
 
-![](http://qiuxiaopeng2000.github.io//images/readme/打赏.png)
+![](images/readme/%E6%89%93%E8%B5%8F.png)
 
 
 #### 文章支持标签分类 
