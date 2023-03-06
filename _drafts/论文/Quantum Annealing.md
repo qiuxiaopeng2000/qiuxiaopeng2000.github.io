@@ -52,9 +52,10 @@ quantum solver 和 classical solver都只能求解小规模问题，但是hybrid
 ### 分解方法
 select a subproblem of variables maximally contributing to the problem energy
 
-1. 选择对问题的能量贡献最大的子部分(variables selected by highest impact on energy)进行分解，然后并行计算子问题。
+一、 选择对问题的能量贡献最大的子部分(variables selected by highest impact on energy)进行分解，然后并行计算子问题。
+> 问题：如何衡量一个变量对问题总能量的贡献度？
+> 答：只考虑每个变量一次项系数的绝对值
 
-如何找到对问题能量贡献最大的部分？
 
 使用breadth-first (BFS) or priority-first selection (PFS) 遍历量子比特节点
 ```python
@@ -67,16 +68,17 @@ bqm = dimod.BinaryQuadraticModel({}, {'ab': 1, 'bc': -1, 'ca': 1}, 0, dimod.SPIN
 # Define the workflow
 # 采用decomposer | sampler | composer的形式
 # decomposer(size): 要分解得到的问题规模大小。比如一个包含10个变量的大问题分解成包含6个变量的子问题，则size=6
-# decomposer(rolling_history): 不同子问题之间允许重叠的变量的最大比例
+# decomposer(rolling): 如果为真，则每个子问题之间的变量不同
+# decomposer(rolling_history): 不同子问题之间允许重叠的变量的最大比例。搜索最大能量影响是先将每个变量对能量的影响从大到小排队，然后从上往下搜索，size规定了窗口的大小，rolling_history限制了窗口的移动范围，如rolling_history=0.15限制了将前15%的变量分离出来
 # sampler(num_reads): 采样的次数
 # ArgMin: selects a new current sample
 # you can use the Loop to iterate a set number of times or until a convergence criteria is met. （可以使用 Loop 迭代一定次数或直到满足收敛条件.）
 iteration = hybrid.RacingBranches(
-    hybrid.InterruptableTabuSampler(),
-    hybrid.EnergyImpactDecomposer(size=2, rolling_history=0.15, traversal='bfs')   
+    hybrid.InterruptableTabuSampler(),  # 经典求解器
+    hybrid.EnergyImpactDecomposer(size=2, rolling=True, rolling_history=0.15, traversal='pfs')   
     | hybrid.QPUSubproblemAutoEmbeddingSampler(num_reads=2)
     | hybrid.SplatComposer()
-) | hybrid.ArgMin()
+) | hybrid.ArgMin() # 选取最小的解
 workflow = hybrid.LoopUntilNoImprovement(iteration, convergence=3)
 
 # Solve the problem
@@ -97,8 +99,18 @@ from hybrid.reference.kerberos import KerberosSampler
 with open('../problems/random-chimera/8192.01.qubo') as problem:  
     bqm = dimod.BinaryQuadraticModel.from_coo(problem)
 len(bqm)          
-solution = KerberosSampler().sample(bqm, max_iter=10, convergence=3)   
+solution = KerberosSampler().sample(bqm, max_iter=10, convergence=3) # convergence: Number of iterations with no improvement that terminates sampling
 solution.first.energy     
 ```
-2. 分析问题的结构，根据problem’s structure.进行分解
+二、 分析问题的结构，根据problem’s structure.进行分解
 
+
+## [Hybrid  Solver](https://docs.ocean.dwavesys.com/en/stable/docs_hybrid/intro/overview.html#overview-hybrid)
+ 
+使用多个不同的求解器进行并行求解。
+
+首先使用经典求解器搜索整个大问题，直到其它求解器都完成了求解，则经典求解器搜索停止搜索并返回结果。
+
+然后同时使用多个decomposer、sampler、composer结构的求解器并行求解
+
+多个求解器并行求解最终得到多个解，选取其中最小的解作为最终的求解结果

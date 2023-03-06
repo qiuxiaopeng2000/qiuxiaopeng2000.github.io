@@ -8,3 +8,6 @@
 
 首先需要为django项目创建一个app，一般在一个app中实现项目的一个功能。`python manage.py startapp`
 
+在views.py实现项目逻辑，若views中的文件过于臃肿，可以把view写成文件夹的形式，把view.py拆分为多个py文件
+
+## 
