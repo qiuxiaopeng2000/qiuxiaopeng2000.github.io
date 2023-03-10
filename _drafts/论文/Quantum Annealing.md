@@ -107,10 +107,12 @@ solution.first.energy
 
 ## [Hybrid  Solver](https://docs.ocean.dwavesys.com/en/stable/docs_hybrid/intro/overview.html#overview-hybrid)
  
-使用多个不同的求解器进行并行求解。
+使用classic-quantum annealing求解器进行并行求解，可以求解large scale problem。
 
-首先使用经典求解器搜索整个大问题，直到其它求解器都完成了求解，则经典求解器搜索停止搜索并返回结果。
+使用经典求解器搜索整个大问题，经典求解器一直循环求解直到其它求解器都完成了求解，则经典求解器搜索停止搜索并返回结果。
 
-然后同时使用多个decomposer、sampler、composer结构的求解器并行求解
+然后同时使用多个运用了不同分解算法的求解器并行求解，decomposer、sampler、composer结构的求解器
 
-多个求解器并行求解最终得到多个解，选取其中最小的解作为最终的求解结果
+多个求解器并行求解最终得到多个解，选取其中energy最小的解作为最终的求解结果
+
+![Hybrid Solver](../../images/Quantum%20Annealing/hybrid.png)
